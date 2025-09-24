@@ -2,29 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MakimLida - Student Online Voting System</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .module { margin-bottom: 2.5rem; padding: 1.5rem; background: #f9fbff; border-radius: 8px; box-shadow: 0 1px 4px rgba(48,102,190,0.05);}
+    .module h2 { color: #3066be; margin-top: 0; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 0.6em; border: 1px solid #b6c9e7; border-radius: 5px; }
+    .form-group textarea { resize: vertical; }
+    .btn { background: #3066be; color: #fff; padding: 0.6em 1.3em; border: none; border-radius: 5px; cursor: pointer;}
+    .btn:hover { background: #254c8c; }
+    .module-list ul { margin: 0; padding-left: 1.2em; }
+  </style>
 </head>
 <body>
   <header>
     <h1>MakimLida</h1>
-    <p>Student Online Voting System</p>
+    <p>Student Online Voting System Prototype</p>
   </header>
   <main>
-    <section>
-      <h2>Welcome!</h2>
-      <p>
-        This is a prototype for the MakimLida Student Online Voting System.<br>
-        Easily organize and participate in student elections, securely and online!
-      </p>
-      <p>
-        For now, this is a static landing page. Future updates will add authentication, voting, and results!
-      </p>
-    </section>
+    <div class="module module-list" id="modules">
+      <h2>Modules</h2>
+      <ul>
+        <li>About the System</li>
+        <li>How Voting Works</li>
+        <li>Contact / Feedback Form</li>
+      </ul>
+    </div>
+
+    <div class="module" id="about">
+      <h2>About the System</h2>
+      <p>MakimLida provides a secure, easy-to-use platform for student elections and voting. Future development will include authentication, candidate profiles, real-time results, and more.</p>
+    </div>
+
+    <div class="module" id="how-voting-works">
+      <h2>How Voting Works</h2>
+      <ol>
+        <li>Log in with your student credentials.</li>
+        <li>Select the election/candidate you want to vote for.</li>
+        <li>Submit your vote securely.</li>
+        <li>View results when the election ends.</li>
+      </ol>
+    </div>
+
+    <div class="module" id="contact">
+      <h2>Contact / Feedback</h2>
+      <form id="feedbackForm" onsubmit="submitFeedback(event)">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Feedback</button>
+      </form>
+      <div id="feedbackMsg" style="margin-top:1em;color:green;"></div>
+    </div>
   </main>
   <footer>
-    <p>&copy; 2025 MakimLida</p>
+    &copy; 2025 MakimLida | Student Online Voting System Prototype
   </footer>
+  <script>
+    // Feedback Form
+    function submitFeedback(event) {
+      event.preventDefault();
+      document.getElementById('feedbackMsg').textContent = "Thank you for your feedback!";
+      document.getElementById('feedbackForm').reset();
+    }
+  </script>
 </body>
 </html>
